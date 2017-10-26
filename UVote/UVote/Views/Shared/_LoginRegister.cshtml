@@ -1,0 +1,16 @@
+﻿@if (Session["employeeId"] != null)
+{
+    @Html.ActionLink("Logout", "Logout", "Admin")
+}
+else if (Session["studentNumber"] != null)
+{
+    @Html.ActionLink("Logout", "Logout", "Vote")
+}
+else
+{
+    <li>@Html.ActionLink("Admin", "Login", "Admin")</li>
+    <li>@Html.ActionLink("Voter", "Login", "Vote")</li>
+}
+
+
+

@@ -1,0 +1,22 @@
+﻿@using UVote.Models
+@model IEnumerable<ElectoralCandidate>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@foreach (var candidate in Model)
+{
+    <div class="media">
+        <div class="media-left media-top">
+            <a href="#">
+                <img class="media-object" src="~/Content/Images/@candidate.ImageUrl" alt="@candidate.FirstName + '' + @candidate.LastName">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@candidate.FirstName + " " + @candidate.LastName</h4>
+            ...
+        </div>
+    </div>
+}
+

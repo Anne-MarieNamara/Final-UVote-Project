@@ -1,0 +1,70 @@
+﻿@model UVote.Models.ContactModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contact Us</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("Contact", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.Name)
+                        @Html.ValidationMessage("RoleTitle", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StudentId, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.StudentId)
+                        @Html.ValidationMessageFor(model => model.StudentId, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.PhoneNumber)
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(model => model.Comments, htmlAttributes: new { @rows = 5, @cols = 30 })
+                        @Html.ValidationMessageFor(model => model.Comments, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-6">
+                        <input type="submit" name="submit" class="btn btn-info" value="Send" />
+                        <input type="reset" name="reset" class="btn btn-warning" value="Reset" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+    <div class="col-md-6" id="Retro">
+        <div class="img-thumbnail">
+            <img src="~/Content/Images/retro.png" alt="Retro Vote Today" />
+        </div>
+    </div>
+</div>
+
+
+

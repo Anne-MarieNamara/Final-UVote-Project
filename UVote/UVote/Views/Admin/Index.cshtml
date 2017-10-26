@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@section Logged{
+    @if (Session["employeeId"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "admin"));
+    }
+}
+<h2>Index</h2> <!--This is Admin Index-->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active">@Html.ActionLink("Add campaign", "Create", "Campaign")</li>
+            <li role="presentation">@Html.ActionLink("Add candidate", "Create", "Candidate")</li>
+            <li role="presentation">@Html.ActionLink("Add student", "Create", "Student")</li>
+        </ul>
+    </div>
+
+
+    <div class="col-md-4">
+        <a href="/Campaign/Index" class="thumbnail">
+            <img src="~/Content/Images/ActiveCampaignsOrangeSquare.png" alt="Active Campaigns">
+        </a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="/Candidate/Index" class="thumbnail">
+            <img src="~/Content/Images/CandidateOrangeSquare.jpg" alt="List of Candidates">
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div id="penguin">
+        <div class="col-md-4">
+            
+                <img src="~/Content/Images/penguinAdmin.png" alt="Admin penguin cartoon" width="200" height="200" />
+            
+        </div>
+    </div>
+</div>

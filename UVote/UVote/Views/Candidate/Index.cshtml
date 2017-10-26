@@ -1,0 +1,37 @@
+﻿@using UVote.Models
+@model IEnumerable<CandidateForAdmin>
+@{
+    ViewBag.Title = "Index";
+}
+@section Logged{
+    @if (Session["employeeId"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "Admin"));
+    }
+}
+<h2>All candidates record</h2>
+<div class="row">
+    <div class="col-md-4">
+        @Html.ActionLink("Back to admin", "Index", "Admin")
+    </div>
+</div>
+<hr />
+@foreach (var candidate in Model)
+{
+    <div class="col-md-6">
+        <div class="media">
+            <div class="media-left media-top">
+                <a href="#">
+                    <img class="media-object" src="~/Content/Images/@candidate.ImageUrl" alt="@candidate.FirstName @candidate.LastName" width="100">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading text-primary">@candidate.RoleTitle</h4>
+                <p>@candidate.FirstName @candidate.LastName</p>
+                <p>Candidate ID: @candidate.CandidateId</p>
+            </div>
+            <br />
+        </div>
+    </div>
+   
+}

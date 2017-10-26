@@ -1,0 +1,110 @@
+﻿@model UVote.Models.StudentModel
+@{
+    ViewBag.Title = "Add Student";
+}
+@section Logged{
+    @if (Session["employeeId"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "admin"));
+    }
+}
+<h2>Add Student</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation">@Html.ActionLink("Add campaign", "Create", "Campaign")</li>
+            <li role="presentation">@Html.ActionLink("Add candidate", "Create", "Candidate")</li>
+            <li role="presentation" class="active">@Html.ActionLink("Add student", "Create", "Student")</li>
+            <li role="presentation">@Html.ActionLink("Admin Home", "Index", "Admin")</li>
+
+        </ul>
+    </div>
+    <div class="col-md-8">
+        @using (Html.BeginForm("Create", "Student", FormMethod.Post))
+        {
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.StudentNumber)
+                        @Html.ValidationMessageFor(model => model.StudentNumber, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Telephone)
+                        @Html.ValidationMessageFor(model => model.Telephone, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.PasswordFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AddressLine1, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.AddressLine1)
+                        @Html.ValidationMessageFor(model => model.AddressLine1, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AddressLine2, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.AddressLine2)
+                        @Html.ValidationMessageFor(model => model.AddressLine2, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AddressLine3, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.AddressLine3)
+                        @Html.ValidationMessageFor(model => model.AddressLine3, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AddressLine4, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.AddressLine4)
+                        @Html.ValidationMessageFor(model => model.AddressLine4, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.EmployeeId, new { Value = Session["employeeId"] })
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">
+                        <input type="submit" name="submit"  class="btn btn-info" value="Submit" />
+                        <input type="reset" name="reset" class="btn btn-warning" value="Reset" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
